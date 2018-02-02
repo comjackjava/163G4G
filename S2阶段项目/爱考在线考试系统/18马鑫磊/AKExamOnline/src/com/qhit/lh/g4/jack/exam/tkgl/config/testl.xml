@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <package name="test" namespace="/test" extends="default">
+
+        <action name="test_*" class="com.qhit.lh.g4.jack.exam.tkgl.action.TestAction" method="{1}">
+        	<interceptor-ref name="loginInterceptor"></interceptor-ref>
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="view_login">/index.jsp</result>
+        	<result name="listCourse" >/jsp/testManage.jsp</result>
+			<result name="listWritten">/jsp/writtenTestList.jsp</result>
+			<result name="addWrittenTest">/jsp/closeDialog.jsp</result>
+			<result name="getWrittenTestById">/jsp/updateWrittenTest.jsp</result>
+			<result name="updateWrittenTest">/jsp/closeDialog.jsp</result>
+			<result name="inportWrittenTest" type="redirectAction">
+				<param name="namespace">/test</param>
+        		<param name="actionName">test_getWrittenList</param>
+        		<param name="course.csId">${course.csId }</param>
+        		<param name="course.csName">${course.csName}</param>
+			</result>
+			<result name="getTestMax" type="json">
+				<param name="noCache">true</param>
+				<!-- 设置服务器响应类型 -->
+				<param name="contentType">application/json</param>
+				<!-- JSON数据 -->
+				<param name="includeProperties">
+					radioEasyMax,radioNormalMax,radioDiffMax,cbEasyMax,cbNormalMax,cbDiffMax
+				</param>
+			</result>
+        </action>
+    </package>
+</struts>

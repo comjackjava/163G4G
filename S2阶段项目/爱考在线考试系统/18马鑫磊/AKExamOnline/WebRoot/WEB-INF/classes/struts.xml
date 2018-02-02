@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用动态方法的调用 -->
+	
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+    <!-- 国际化资源文件名称 -->  
+
+    <constant name="struts.custom.i18n.resources" value="global" />  
+
+    <!-- 是否自动加载国际化资源文件  -->  
+
+    <constant name="struts.i18n.reload" value="true" /> 
+
+    <!-- 编码格式 -->  
+
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <package name="default" namespace="/" extends="struts-default,json-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.qhit.lh.g4.jack.exam.common.interceptor.LoginInterceptor"></interceptor>
+		</interceptors>
+
+
+   <!--      <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="view_login">/index.jsp</result>
+        </global-results>  -->
+
+
+
+        <!-- <global-exception-mappings>
+
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+
+        </global-exception-mappings> -->
+
+    </package>
+	<include file="com/qhit/lh/g4/jack/exam/common/config/user.xml"></include>
+	<include file="com/qhit/lh/g4/jack/exam/tkgl/config/testl.xml"></include>
+	<include file="com/qhit/lh/g4/jack/exam/sjgl/config/paper.xml"></include>
+	<include file="com/qhit/lh/g4/jack/exam/kmgl/config/course.xml"></include>
+	<include file="com/qhit/lh/g4/jack/exam/sjgl/config/paper.xml"></include>
+	<include file="com/qhit/lh/g4/jack/exam/bjgl/config/clazz.xml"></include>
+</struts>

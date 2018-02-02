@@ -1,0 +1,155 @@
+1，登录
+2，题库管理
+3，试卷管理：
+	试卷列表：
+		1,数据表：
+			试卷表：
+				字段：
+					主键编号、类别、课程主键（外键关系）、标题、考试时长、试卷状态
+					总分数、总题数，每题分数
+				关系：
+					试卷表-（n-1）-科目表
+					试卷表-（m-n）-班级表
+			试卷班级关系表：
+				字段：	
+					主键编号、试卷编号、班级编号、开考时间、结束时间（除了外键关系之外还有其他字段）
+					1 			1    16GR1
+					2           1    16GR2
+					3	        2    16GR1
+				关系：（因为m-n关系表中有其他字段，拆分为两个n-1关系）
+					试卷表-(1-N)-关系表
+					班级表-（1-N）-关系表
+		2,JavaBean的封装、映射文件配置，关系配置
+		3,jsp页面
+		4,action\service\dao\config--OK
+	随机组卷：
+		1,打开子窗口，根据专业方向和阶段选择科目（Ajax）
+		2,根据科目获取每类试题的总数
+		3,填写基本信息，验证表单数据，计算总题数和每题的分数，然后提交表单数据
+		4,查询所有的类型的试题
+		5,随机获取试题集合
+		6,设置试题和试卷的关系
+		7,设置课程和试卷的关系
+		8,添加试卷
+		
+	结束考试：当试卷状态为考试中的时候
+		修改试卷状态
+	开始考试：
+		
+	选题组卷：
+		
+					
+4，
+
+Ajax：
+	使用jquery发送ajax请求:
+	1,引入jquery.js文件
+	2,语法：
+		$.ajax();//基本
+		$.get();
+		$.post();
+		
+		$.getJson(
+			url,
+			{
+				"name":"tom",
+				"pwd":"123456"
+			},
+			function(data){
+			
+			}
+		);
+Json:数据交互格式（key（字符串）-value（object、array、字符型、数字型、boolean）存放数据）
+	对象：{}
+	数组：[]
+	多个属性值用逗号隔开，但是最后一个数据不需要加逗号
+	json对象：
+	{
+		"name": "tom",
+		"sex": "男",
+		"age": 23,
+		"online": true,
+		"result":{
+			"data":"data"
+		},
+		"list":[
+			{
+				
+			},
+			{
+				
+			}
+		]
+	}
+	json数组：data
+	[
+		{
+			"id":1001,
+			"name":"tom",
+			"enable":true
+		},
+		{
+			"id":1001,
+			"name":"tom",
+			"enable":true
+		}
+	]
+	
+	读：
+		data[0].id
+	
+	写：
+		jsonObj.age = 12;
+		
+		delete jsonObj.age
+	
+Struts2返回Json数据:
+	1,添加struts2处理JSON的jar：struts2-json-plugin-2.3.34.jar
+	2，修改struts2配置文件
+		pagckage添加 extends 的属性值：json-default
+	3，修改aCtion中result配置:
+		type="json"
+		添加result的参数：
+			<!-- 取消浏览器缓存 -->
+			<param name="noCache">true</param>
+			<!-- 设置服务器响应类型 -->
+			<param name="contentType">application/json</param>
+			<!--只序列化Action内的listCourses属性（单个对象转换成json） -->
+			<param name="root">listCourses</param>
+			
+			<!-- JSON数据(多个属性值) -->
+			<param name="includeProperties">
+				radioEasyMax,radioNormalMax,radioDiffMax,cbEasyMax,cbNormalMax,cbDiffMax
+			</param>
+			
+		{
+			"radioEasyMax":1,
+			"radioNormalMax":1,
+			"radioDiffMax":1,
+			"cbEasyMax",1,
+			"cbNormalMax":1,
+			"cbDiffMax"
+		}
+
+
+
+		
+***************************************************************************************************8
+问题：
+1，统一使用Hibernate4.3
+2，数据库更新->JavaBean->映射文件更新
+3，left.jsp去掉base标签，文件中相对路径就是相对于当前left.jsp的相对路径
+4，JavaBean\Action中缺少set\get方法
+5，
+
+
+
+
+
+
+
+
+
+
+
+
