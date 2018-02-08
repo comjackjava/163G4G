@@ -22,7 +22,7 @@ public class PaperserviceImpl  implements Paperservice{
 	@Override
 	public void endExam(Paper paper) {
 		// TODO Auto-generated method stub
-		 paperdao.endExam(paper);
+		 paperdao.updateExam(paper, "考试结束");
 	}
 	@Override
 	public void createPaperRandom(Paper paper) {

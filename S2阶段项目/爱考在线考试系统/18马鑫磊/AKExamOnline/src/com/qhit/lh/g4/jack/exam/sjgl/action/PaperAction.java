@@ -281,6 +281,7 @@ public class PaperAction extends ActionSupport {
 		return "createRandom";
 	}
 	public String startExam(){
+		
 		paperservice.startExam(paperClasses, paper);
 		return "startExam";
 	}

@@ -5,7 +5,7 @@
 
 	String path = request.getContextPath();
 
-	String basePath = request.getScheme() + "://"
+	String basePath = request.getScheme() + "://" 
 
 			+ request.getServerName() + ":" + request.getServerPort()
 
@@ -221,7 +221,7 @@ function showStartExam(pid,ptime) {
 
 			if(res != null && res.closed){
 
-				window.location.reload(true);
+					window.location.href="${basePath}paper/paper_getPaperList";
 
 			}
 
@@ -359,7 +359,7 @@ function showMsg() {
 
 								<font color="red">${paperinfo.pstate }</font>
 
-							</s:if> <s:elseif test="#paper.pstate == '考试中'">
+							</s:if> <s:elseif test="#paperinfo.pstate == '考试中'">
 
 								<font color="green">${paperinfo.pstate }</font>
 

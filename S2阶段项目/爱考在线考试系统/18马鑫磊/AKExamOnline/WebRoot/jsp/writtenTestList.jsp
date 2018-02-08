@@ -170,7 +170,7 @@ font {
 
 		<form
 
-			action=""
+			action="test/test_inportWrittenTest?course.csId=${course.csId }&course.csName=${course.csName}"
 
 			method="post" enctype="multipart/form-data"
 
@@ -182,7 +182,7 @@ font {
 
 		</form>
 
-		<a href="../file/Template _01.xls"><input type="button"
+		<a href="file/Template _01.xlsx"><input type="button"
 
 			value="下载试题模板"></a>
 

@@ -111,7 +111,21 @@ public class PaperdaoImpl extends Basedao implements Paperdao {
 
 		ts.commit();
 	}
-
+	@Override
+	public void updateExam(Paper paper, String state) {
+		Transaction ts = getSession().beginTransaction();
+//		paper = (Paper) getSession().get(Paper.class, paper.getPid());
+//		paper.setPstate("考试结束");
+//		getSession().update(paper);
+		String hql = "update Paper paper set paper.pstate = ? where paper.pid = ?";
+		Query queryUpdate = getSession().createQuery(hql);
+		queryUpdate.setString(0, state);
+		queryUpdate.setInteger(1, paper.getPid());
+		//执行HQL的添加、修改、删除调用的是executeUpdate方法
+		queryUpdate.executeUpdate();
+		ts.commit();
+		getSession().close();
+	}
 	@Override
 	public void createPaperRandom(Paper paper) {
 		// TODO Auto-generated method stub
@@ -134,24 +148,10 @@ public class PaperdaoImpl extends Basedao implements Paperdao {
 			getSession().save(paperClass);
 		}
 		ts.commit();
-		
+		getSession().close();
 	}
 
-	@Override
-	public void updateExam(Paper paper, String state) {
-		Transaction ts = getSession().beginTransaction();
-//		paper = (Paper) getSession().get(Paper.class, paper.getPid());
-//		paper.setPstate("考试结束");
-//		getSession().update(paper);
-		String hql = "update Paper paper set paper.pstate = ? where paper.pid = ?";
-		Query queryUpdate = getSession().createQuery(hql);
-		queryUpdate.setString(0, state);
-		queryUpdate.setInteger(1, paper.getPid());
-		//执行HQL的添加、修改、删除调用的是executeUpdate方法
-		queryUpdate.executeUpdate();
-		ts.commit();
-		
-	}
+
 
 
 
