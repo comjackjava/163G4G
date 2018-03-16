@@ -1,0 +1,20 @@
+SQL> conn scott/tiger
+已连接。
+SQL> show SGA
+ORA-00942: 表或视图不存在 
+
+
+SQL> show user
+USER 为 "SCOTT"
+SQL> conn sys/123456 as sysdba
+已连接。
+SQL> show SGA
+
+Total System Global Area  778387456 bytes                                       
+Fixed Size                  1374808 bytes                                       
+Variable Size             243271080 bytes                                       
+Database Buffers          528482304 bytes                                       
+Redo Buffers                5259264 bytes                                       
+SQL> show user
+USER 为 "SYS"
+SQL> spool off
