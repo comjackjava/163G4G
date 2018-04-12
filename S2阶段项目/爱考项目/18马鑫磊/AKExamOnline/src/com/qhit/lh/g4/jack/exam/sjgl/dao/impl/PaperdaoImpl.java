@@ -43,49 +43,7 @@ public class PaperdaoImpl extends Basedao implements Paperdao {
 			hql.append(" and paper.pstate = :pState ");
 
 		}
-		Query query =HibernateSessionFactory.getSession().createQuery(hql.toString());
-		//设置参数
-
-			if(parameter.get("csId") != null && (Integer)parameter.get("csId") > 0){
-
-					query.setInteger("csId", (Integer)parameter.get("csId"));
-
-				}
-
-				if(parameter.get("pType") != null && !"".equals(parameter.get("pType"))){
-
-					query.setString("pType", (String) parameter.get("pType"));
-
-				}
-
-				if(parameter.get("pState") != null && !"".equals(parameter.get("pState"))){
-
-					query.setString("pState", (String) parameter.get("pState"));
-
-				}
-				//总记录数
-
-				int count = query.list().size();
-
-				pageBean.setTotalNumber(count);
-
-				pageBean.setCurrentIndex(pageIndex);
-
-				//当前页数据
-
-				List<Paper> items = query.setFirstResult((pageBean.getCurrentIndex()-1)*pageBean.getPageSize())
-
-						.setMaxResults(pageBean.getPageSize())
-
-						.list();
-
-				//设置pagebean的数据集合
-
-				pageBean.setItems(items);
-				
-				//执行查询
-					
-				return pageBean;
+		5
 	}
 
 	@Override
