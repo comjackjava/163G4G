@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"/>
+	<!-- 允许动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<!-- 用户 -->
+	<package name="user" extends="struts-default" namespace="/user">
+		<action name="userAction" class="com.qhit.zxks.user.action.UserAction">
+			<result name="success">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+	</package>
+	<!-- 题库 -->
+	<package name="questionBank" extends="json-default" namespace="/questionBank">
+		<action name="questionBankAction" class="com.qhit.zxks.questionBank.action.QuestionBankAction">
+			<result type="json" name="json"></result>
+			<result name="questionBankList">/questionBankList.jsp</result>
+			<result name="questionList">/questionList.jsp</result>
+		</action>
+	</package>
+	<!-- 试卷 -->
+	<package name="examination" extends="json-default" namespace="/examination">
+		<action name="examinationAction" class="com.qhit.zxks.testPaper.action.ExaminationAction">
+			<result type="json" name="json"></result>
+			<result name="examinationList">/examinationList.jsp</result>
+		</action>
+	</package>
+</struts>

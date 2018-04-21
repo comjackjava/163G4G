@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="ACCOUNT" schema="dbo" catalog="AIKAO"
+		class="com.qhit.zxks.user.bean.Account">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TEACHER" schema="dbo" catalog="AIKAO"
+		class="com.qhit.zxks.common.bean.Teacher">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="STUDENT" schema="dbo" catalog="AIKAO"
+		class="com.qhit.zxks.common.bean.Student">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="MAJOR" schema="dbo" catalog="AIKAO">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="STAGE" schema="dbo" catalog="AIKAO">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="QUESTION" schema="dbo" catalog="AIKAO">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="COURSE" schema="dbo" catalog="AIKAO">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>
