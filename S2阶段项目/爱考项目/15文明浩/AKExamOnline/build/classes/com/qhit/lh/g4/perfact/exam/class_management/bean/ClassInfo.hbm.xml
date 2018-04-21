@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-1 21:40:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.qhit.lh.g4.perfact.exam.class_management.bean.ClassInfo" table="classInfo" optimistic-lock="version">
+        <id name="ccode" type="string">
+            <column name="cCode" length="20" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="cname" type="string">
+            <column name="cName" length="20" not-null="true" />
+        </property>
+        <property name="major" type="string">
+            <column name="major" length="10" not-null="true" />
+        </property>
+        <property name="insId" type="string">
+            <column name="insId" length="20" not-null="true" />
+        </property>
+        <property name="iecId" type="string">
+            <column name="iecId" length="20" not-null="true" />
+        </property>
+        <property name="cdate" type="date">
+            <column name="cDate" length="10" not-null="true" />
+        </property>
+        <property name="g1num" type="integer">
+            <column name="g1Num" />
+        </property>
+        <property name="g2num" type="integer">
+            <column name="g2Num" />
+        </property>
+        <property name="g3num" type="integer">
+            <column name="g3Num" />
+        </property>
+        <property name="csId" type="integer">
+            <column name="csId" />
+        </property>
+        <property name="cremark" type="string">
+            <column name="cRemark" length="50" />
+        </property>
+        
+        <set name="students" lazy="false" cascade="save-update">
+        	<key column="cCode"></key>
+        	<one-to-many class="com.qhit.lh.g4.perfact.exam.student_management.bean.Student"/>
+        </set>
+        
+         <!-- 1-n -->
+        <set name="paperClasses" lazy="false" cascade="save-update">
+        	<key column="cCode"></key>
+        	<one-to-many class="com.qhit.lh.g4.perfact.exam.examinationpaper_management.bean.PaperClass"/>
+        </set>
+    </class>
+</hibernate-mapping>

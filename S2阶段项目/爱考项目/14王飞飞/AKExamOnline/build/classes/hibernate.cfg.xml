@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.connection.password">123456</property>
+  <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=db_exam</property>
+  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.default_catalog">db_exam</property>
+  <property name="hibernate.default_schema">dbo</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="show_sql">true</property>
+  <property name="format_sql">true</property>
+  <property name="jdbc.use_scrollable_resultset">false</property>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/student_management/bean/Student.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/common/bean/Users.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/teacher_management/bean/Teacher.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/class_management/bean/ClassInfo.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/subject_management/bean/Course.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/questions_management/bean/MachineTest.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/questions_management/bean/WrittenTest.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/examinationpaper_management/bean/Paper.hbm.xml"/>
+  <mapping resource="com/qhit/lh/g4/perfact/exam/examinationpaper_management/bean/PaperClass.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-1 21:40:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+   <class name="com.qhit.lh.g4.perfact.exam.examinationpaper_management.bean.PaperClass" table="paper_class" schema="dbo" catalog="db_exam">
+        <id name="pcId" type="java.lang.Integer">
+            <column name="pcId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="pid" type="java.lang.Integer" insert="false" update="false">
+            <column name="pId" not-null="true" />
+        </property>
+        <property name="ccode" type="java.lang.String" insert="false" update="false">
+            <column name="cCode" length="20" not-null="true" />
+        </property>
+        <property name="examDate" type="java.util.Date">
+            <column name="examDate" length="10" not-null="true" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="endDate" length="10" not-null="true" />
+        </property>
+        
+        <!-- n-1 -->
+        <many-to-one name="classInfo" class="com.qhit.lh.g4.perfact.exam.class_management.bean.ClassInfo" column="ccode" lazy="false"></many-to-one>
+        <many-to-one name="paper" class="com.qhit.lh.g4.perfact.exam.examinationpaper_management.bean.Paper" column="pid" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

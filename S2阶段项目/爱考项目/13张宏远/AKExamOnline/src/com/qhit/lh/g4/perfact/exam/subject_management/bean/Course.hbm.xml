@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-1 21:40:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.qhit.lh.g4.perfact.exam.subject_management.bean.Course" table="course" optimistic-lock="version">
+       <id name="csId" type="java.lang.Integer">
+            <column name="csId" />
+            <generator class="native"></generator>
+        </id>
+        <property name="csName" type="java.lang.String">
+            <column name="csName" length="20" not-null="true" />
+        </property>
+        <property name="stage" type="java.lang.String">
+            <column name="stage" length="2" not-null="true" />
+        </property>
+        <property name="major" type="java.lang.String">
+            <column name="major" length="10" not-null="true" />
+        </property>
+        <!-- 1-n -->
+        <set name="writtenTests" fetch="join" cascade="save-update">
+        	<key column="csId"></key>
+        	<one-to-many class="com.qhit.lh.g4.perfact.exam.questions_management.bean.WrittenTest"/>
+        </set>
+        <set name="machineTests" fetch="join" cascade="save-update">
+        	<key column="csId"></key>
+        	<one-to-many class="com.qhit.lh.g4.perfact.exam.questions_management.bean.MachineTest"/>
+        </set>
+    </class>
+</hibernate-mapping>

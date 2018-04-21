@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-28 17:48:06 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.qhit.lh.g4.perfact.exam.common.bean.Users" table="users" optimistic-lock="version">
+        <id name="name" type="string">
+            <column name="name" length="20" />
+            <generator class="assigned" >
+            </generator>
+            
+        </id>
+        <property name="pwd" type="string">
+            <column name="pwd" length="20" not-null="true" />
+        </property>
+        <property name="role" type="int">
+            <column name="role" not-null="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>
